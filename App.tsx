@@ -1,29 +1,34 @@
 import React from 'react';
-import {
-  StyleSheet,
-} from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { Dashboard } from './pages/Dashboard';
-import { Screen } from 'react-native-screens';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Dashboard } from './pages/Dashboard';
+import { Splash } from './pages/Splash';
+import { SignUp } from './pages/SignUp';
+import { OnboardingOne } from './pages/OnboardingOne';
 
-const Stack = createNativeStackNavigator();
+type RootStackParamList = {
+  Dashboard: undefined;
+  SignUp: undefined;
+  Splash: undefined;
+  OnboardingOne: undefined;
+};
 
-function App(): JSX.Element {
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
+const App: React.FC = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Dashboard">
-        <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }} />
-        <Stack.Screen name="Screen" component={Screen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Splash">
+          <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
+          <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
+          <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }} />
+          <Stack.Screen name="OnboardingOne" component={OnboardingOne} options={{ headerShown: false }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-
-});
 
 export default App;
