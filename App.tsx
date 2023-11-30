@@ -6,12 +6,16 @@ import { Dashboard } from './pages/Dashboard';
 import { Splash } from './pages/Splash';
 import { SignUp } from './pages/SignUp';
 import { OnboardingOne } from './pages/OnboardingOne';
+import Bot from './pages/Bot';
+import { Community } from './pages/Community';
 
 type RootStackParamList = {
   Dashboard: undefined;
   SignUp: undefined;
   Splash: undefined;
   OnboardingOne: undefined;
+  Bot: undefined;
+  Community: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -25,6 +29,8 @@ const App: React.FC = () => {
           <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
           <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }} />
           <Stack.Screen name="OnboardingOne" component={OnboardingOne} options={{ headerShown: false }} />
+          <Stack.Screen name="Bot" component={Bot} options={{ headerShown: false }} />
+          <Stack.Screen name="Community" component={Community} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

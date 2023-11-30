@@ -12,11 +12,11 @@ export const SignUp: React.FC<Props> = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>SignUp</Text>
+            <Text style={styles.title}>הרשמה</Text>
 
             <TextInput
                 style={styles.input}
-                placeholder="Email"
+                placeholder="אימייל"
                 value={email}
                 onChangeText={setEmail}
                 keyboardType="email-address"
@@ -25,14 +25,14 @@ export const SignUp: React.FC<Props> = ({ navigation }) => {
 
             <TextInput
                 style={styles.input}
-                placeholder="Password"
+                placeholder="סיסמה"
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry
             />
 
             <Button
-                title="Next"
+                title="המשך"
                 onPress={() => navigation.navigate('OnboardingOne')}
             />
         </View>
@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
         width: '80%',
         padding: 10,
         marginBottom: 15,
+        textAlign: 'right',
         borderWidth: 1,
         borderColor: '#BBDEFB',
         borderRadius: 5,

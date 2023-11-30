@@ -10,18 +10,19 @@ type Props = {
 
 type BalloonProps = {
     color: string;
+    text?: string;
     onPress: () => void;
 };
 
-const Balloon: React.FC<BalloonProps> = ({ color, onPress }) => (
+const Balloon: React.FC<BalloonProps> = ({ color, onPress, text }) => (
     <TouchableOpacity style={[styles.balloon, { backgroundColor: color }]} onPress={onPress}>
-        <Text style={styles.balloonText}>בוט</Text>
+        <Text style={styles.balloonText}>{text ?? 'בוט'}</Text>
     </TouchableOpacity>
 );
 
-const Circle: React.FC<BalloonProps> = ({ color, onPress }) => (
+const Circle: React.FC<BalloonProps> = ({ color, onPress, text }) => (
     <TouchableOpacity style={[styles.circle, { backgroundColor: color }]} onPress={onPress}>
-        <Text style={styles.balloonText}>בוט</Text>
+        <Text style={styles.balloonText}>{text ?? 'בוט'}</Text>
     </TouchableOpacity>
 );
 
@@ -40,6 +41,7 @@ export const Dashboard: React.FC<Props> = ({ navigation }) => {
                 {/* First Row */}
                 <View style={styles.balloonRow}>
                     <Balloon
+                        text='המידע שלך'
                         color={balloonColors[0]}
                         onPress={() => navigation.navigate('OtherPage')}
                     />
@@ -47,12 +49,14 @@ export const Dashboard: React.FC<Props> = ({ navigation }) => {
                 {/* Second Row */}
                 <View style={styles.balloonRow}>
                     <Balloon
+                        text='בוט'
                         color={balloonColors[1]}
-                        onPress={() => navigation.navigate('OtherPage')}
+                        onPress={() => navigation.navigate('Bot')}
                     />
                     <Balloon
+                        text='קהילה'
                         color={balloonColors[2]}
-                        onPress={() => navigation.navigate('OtherPage')}
+                        onPress={() => navigation.navigate('Community')}
                     />
                 </View>
                 {/* Third Row */}
